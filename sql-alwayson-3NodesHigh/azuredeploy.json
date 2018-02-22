@@ -65,7 +65,7 @@
       "metadata": {
         "description": "The size of the AD VMs Created"
       },
-      "defaultValue": "Standard_D1_v2"
+      "defaultValue": "Standard_D1"
     },
     "sqlVMSize": {
       "type": "string",
@@ -98,7 +98,7 @@
       "metadata": {
         "description": "The size of the SQL VMs Created"
       },
-      "defaultValue": "Standard_DS3_v2"
+      "defaultValue": "Standard_DS1"
     },
     "domainName": {
       "type": "string",
@@ -735,9 +735,6 @@
                   "subnet": {
                     "id": "[variables('sqlSubnetRef')]"
                   },
-                  "publicIpAddress": {
-                    "id": "[resourceId(resourceGroup().Name,'Microsoft.Network/publicIpAddresses', variables('sql0AddressNameWithSuffix'))]"
-                  },
                   "loadBalancerBackendAddressPools": [
                     {
                       "id": "[variables('derivedIds').sqlBEAddressPoolID]"
@@ -784,9 +781,6 @@
                   "subnet": {
                     "id": "[variables('sqlSubnetRef')]"
                   },
-                  "publicIpAddress": {
-                    "id": "[resourceId(resourceGroup().Name,'Microsoft.Network/publicIpAddresses', variables('sql1AddressNameWithSuffix'))]"
-                  },
                   "loadBalancerBackendAddressPools": [
                     {
                       "id": "[variables('derivedIds').sqlBEAddressPoolID]"
@@ -832,9 +826,6 @@
                   "privateIPAllocationMethod": "Dynamic",
                   "subnet": {
                     "id": "[variables('sqlSubnetRef')]"
-                  },
-                  "publicIpAddress": {
-                    "id": "[resourceId(resourceGroup().Name,'Microsoft.Network/publicIpAddresses', variables('sql2AddressNameWithSuffix'))]"
                   },
                   "loadBalancerBackendAddressPools": [
                     {
